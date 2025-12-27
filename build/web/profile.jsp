@@ -21,99 +21,142 @@
             --card-background: #ffffff;
             --text-color: #495057;
             --heading-color: #212529;
-            --border-radius: 12px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition-speed: 0.3s;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --transition-speed: 0.2s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--background-color);
             min-height: 100vh;
-            margin: 0;
+            padding: 10px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
+            align-items: flex-start;
         }
 
         .profile-card {
             background: var(--card-background);
             width: 100%;
-            max-width: 700px;
-            padding: 40px;
+            max-width: 550px;
+            padding: 25px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            animation: fadeIn 0.8s ease-out;
-            border-left: 5px solid var(--primary-color);
+            animation: fadeIn 0.5s ease-out;
+            border-left: 4px solid var(--primary-color);
+            margin: 10px 0;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
         .profile-card h2 {
             text-align: center;
             color: var(--heading-color);
-            margin-bottom: 30px;
-            font-weight: 700;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #E9ECEF;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #E9ECEF;
+            padding-bottom: 10px;
         }
         
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
         }
         
         .detail-item {
-            padding: 15px;
-            background: #f1f7fe;
-            border-radius: 8px;
-            border-left: 3px solid var(--primary-color);
+            padding: 10px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 2px solid var(--primary-color);
         }
 
         .detail-item strong {
             display: block;
             color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
         }
 
         .detail-item span {
             color: var(--text-color);
             font-weight: 400;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.3;
         }
 
         .full-width-section {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #DEE2E6;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #E9ECEF;
+            background: #f8fafc;
         }
         
         .full-width-section strong {
             display: block;
             color: var(--heading-color);
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .full-width-section span {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         
         .quote {
-            background: #FFF3CD;
-            border-left: 5px solid #FFC107;
-            padding: 15px 20px;
+            background: #FFF9E6;
+            border-left: 3px solid #FFD166;
+            padding: 12px 15px;
             font-style: italic;
-            color: #856404;
-            margin-bottom: 25px;
+            color: #8B6B00;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .quote strong {
+            color: #8B6B00;
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: block;
+        }
+        
+        @media (max-width: 400px) {
+            .profile-card {
+                padding: 15px;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .profile-card h2 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+        }
+        
+        .detail-item:hover {
+            background: #f1f7fe;
+            transition: background var(--transition-speed);
         }
     </style>
 </head>
@@ -126,49 +169,49 @@
         
         <div class="detail-item">
             <strong>Name</strong>
-            <span>${name}</span>
+            <span>${profile.fullName}</span>
         </div>
         
         <div class="detail-item">
             <strong>Student ID</strong>
-            <span>${studentId}</span>
+            <span>${profile.studentId}</span>
         </div>
         
         <div class="detail-item">
             <strong>Program</strong>
-            <span>${program}</span>
+            <span>${profile.program}</span>
         </div>
         
         <div class="detail-item">
             <strong>Email</strong>
-            <span>${email}</span>
+            <span>${profile.email}</span>
         </div>
         
         <div class="detail-item">
             <strong>Hobbies</strong>
-            <span>${hobbies}</span>
+            <span>${profile.hobbies}</span>
         </div>
         
         <div class="detail-item">
             <strong>Strengths</strong>
-            <span>${strengths}</span>
+            <span>${profile.strengths}</span>
         </div>
         
         <div class="detail-item">
             <strong>Career Ambition</strong>
-            <span>${ambition}</span>
+            <span>${profile.ambition}</span>
         </div>
         
     </div>
 
     <div class="quote">
         <strong>Favorite Quote:</strong>
-        “${quote}”
+        “${profile.quotes}”
     </div>
 
     <div class="full-width-section">
         <strong>About Me</strong>
-        <span>${intro}</span>
+        <span>${profile.intro}</span>
     </div>
     
 </div>

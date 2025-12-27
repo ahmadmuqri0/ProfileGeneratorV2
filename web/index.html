@@ -21,95 +21,99 @@ and open the template in the editor.
             --input-border: #dee2e6;
             --input-focus: #007bff;
             --text-color: #343a40;
-            --border-radius: 10px;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --transition-speed: 0.3s;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --transition-speed: 0.2s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--background-color);
-            min-height: 100vh; 
-            margin: 0;
+            min-height: 100vh;
+            padding: 10px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 10px; 
-            box-sizing: border-box;
+            align-items: flex-start;
         }
 
         .form-card {
             background: var(--card-background);
             width: 100%;
-            max-width: 650px;
-            padding: 25px; 
+            max-width: 550px;
+            padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            animation: fadeInScale 0.8s ease-out;
-            max-height: 98vh; 
-            overflow-y: auto;
+            animation: fadeInScale 0.5s ease-out;
+            margin: 10px 0;
         }
 
         @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95); }
-            to   { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: scale(0.98) translateY(10px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .form-card h2 {
             text-align: center;
             color: var(--primary-color);
-            margin-bottom: 20px; 
-            font-weight: 700;
-            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.4rem;
         }
         
         .form-group {
-            margin-bottom: 12px; 
+            margin-bottom: 10px;
         }
 
         label {
             display: block;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-color);
-            margin-bottom: 4px; 
-            font-size: 0.9rem;
+            margin-bottom: 3px;
+            font-size: 0.85rem;
         }
 
         input, textarea, select {
             width: 100%;
-            padding: 9px; 
+            padding: 8px;
             border: 1px solid var(--input-border);
             border-radius: 5px; 
             transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
             box-sizing: border-box;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--input-focus);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
         }
         
         textarea {
             resize: vertical;
-            min-height: 60px; 
+            min-height: 50px;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px; 
+            gap: 12px;
         }
         
-        @media (max-width: 550px) {
+        @media (max-width: 500px) {
             .grid-layout {
                 grid-template-columns: 1fr;
+                gap: 8px;
             }
         }
 
         hr {
-            margin: 15px 0; 
+            margin: 12px 0;
             border: 0; 
             border-top: 1px solid #e9ecef;
         }
@@ -118,19 +122,54 @@ and open the template in the editor.
             width: 100%;
             background: var(--primary-color);
             color: white;
-            padding: 10px; 
+            padding: 9px;
             border: none;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: background var(--transition-speed), transform var(--transition-speed);
-            margin-top: 18px; 
+            margin-top: 15px;
         }
 
         button[type="submit"]:hover {
             background: #0056b3;
             transform: translateY(-1px);
+        }
+
+        .section-header {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 15px 0 10px 0;
+            font-size: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+
+        ::placeholder {
+            color: #adb5bd;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 400px) {
+            .form-card {
+                padding: 15px;
+            }
+            
+            .form-card h2 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+            
+            input, textarea, select {
+                padding: 7px;
+                font-size: 0.85rem;
+            }
+            
+            button[type="submit"] {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -182,7 +221,7 @@ and open the template in the editor.
 
         <div class="form-group">
             <label for="quote">Favorite Quote:</label>
-            <input type="text" id="quote" name="quote" placeholder="Optional quote">
+            <input type="text" id="quotes" name="quotes" placeholder="Optional quote">
         </div>
 
         <div class="form-group">

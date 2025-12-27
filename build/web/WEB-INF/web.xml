@@ -2,8 +2,32 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>ProfileServlet</servlet-name>
-        <servlet-class>com.assignment.profile.ProfileServlet</servlet-class>
+        <servlet-class>profile.servlet.ProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListProfileServlet</servlet-name>
+        <servlet-class>profile.servlet.ListProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProfileServlet</servlet-name>
+        <servlet-class>profile.servlet.ViewProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProfileServlet</servlet-name>
+        <servlet-class>profile.servlet.DeleteProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListProfileServlet</servlet-name>
+        <url-pattern>/profiles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProfileServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfileServlet</servlet-name>
+        <url-pattern>/view-profile</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProfileServlet</servlet-name>
         <url-pattern>/profile</url-pattern>
