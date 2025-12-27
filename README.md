@@ -1,6 +1,6 @@
-# Individual Assignment 1 CSC584
+# Individual Assignment 2 CSC584
 
-This is my individual assignment on building a form to generate personal profile.
+This is an update to my individual assignment on building a complete profile management system.
 
 ![instruction about the assignment](./assets/instruction.png "Instructions")
 
@@ -8,13 +8,10 @@ This is my individual assignment on building a form to generate personal profile
 
 **What does this project do?**
 
-Firstly the project does nothing fancy, it takes the input from user in a form and then the the data will be send over to ProfileServlet to be processed and then be displayed as a simplified card of profile summary.
-
-## Notes
-
-That's it! If someone found this just give it a pass, because this is honestly just an assignment project and not to be taken seriously.
+The project work as the same but now added the functionality to view all profiles and it even has delete features! the data is being stored persistently in database.
 
 ## Showcase
 
 ![form showcase](./assets/showcase1.png "Form Field")
 ![profile showcase](./assets/showcase2.png "Generated Profile")
+![profile showcase](./assets/showcase3.png "List All Profile")
