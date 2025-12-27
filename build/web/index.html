@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #9ec3fc;
+            --card-background: #ffffff;
+            --input-border: #dee2e6;
+            --input-focus: #007bff;
+            --text-color: #343a40;
+            --border-radius: 10px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background-color);
+            min-height: 100vh; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px; 
+            box-sizing: border-box;
+        }
+
+        .form-card {
+            background: var(--card-background);
+            width: 100%;
+            max-width: 650px;
+            padding: 25px; 
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            animation: fadeInScale 0.8s ease-out;
+            max-height: 98vh; 
+            overflow-y: auto;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .form-card h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px; 
+            font-weight: 700;
+            font-size: 1.6rem;
+        }
+        
+        .form-group {
+            margin-bottom: 12px; 
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 4px; 
+            font-size: 0.9rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 9px; 
+            border: 1px solid var(--input-border);
+            border-radius: 5px; 
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--input-focus);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 60px; 
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px; 
+        }
+        
+        @media (max-width: 550px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        hr {
+            margin: 15px 0; 
+            border: 0; 
+            border-top: 1px solid #e9ecef;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px; 
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background var(--transition-speed), transform var(--transition-speed);
+            margin-top: 18px; 
+        }
+
+        button[type="submit"]:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h2>Enter Your Profile Details</h2>
+
+    <form action="profile" method="POST">
+        
+        <div class="grid-layout">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" placeholder="2025XXXXXX" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="program">Program:</label>
+                <input type="text" id="program" name="program" placeholder="CDCS253" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="johndoe@gmail.com" required>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="form-group">
+            <label for="hobbies">Hobbies:</label>
+            <input type="text" id="hobbies" name="hobbies" placeholder="e.g. Reading, Fishing, Hiking">
+        </div>
+
+        <div class="form-group">
+            <label for="strengths">Strengths:</label>
+            <input type="text" id="strengths" name="strengths" placeholder="e.g. Teamwork, Communication, Problem-Solving">
+        </div>
+
+        <div class="form-group">
+            <label for="ambition">Ambition / Career Goal:</label>
+            <input type="text" id="ambition" name="ambition" placeholder="e.g. Senior Software Engineer, Data Analyst">
+        </div>
+
+        <div class="form-group">
+            <label for="quote">Favorite Quote:</label>
+            <input type="text" id="quote" name="quote" placeholder="Optional quote">
+        </div>
+
+        <div class="form-group">
+            <label for="intro">Self Introduction:</label>
+            <textarea id="intro" name="intro" rows="3" placeholder="Briefly tell us something interesting about yourself..."></textarea>
+        </div>
+
+        <button type="submit">Create My Profile</button>
+    </form>
+</div>
+
+</body>
+</html>
